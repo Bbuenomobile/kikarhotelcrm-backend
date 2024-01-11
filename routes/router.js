@@ -1,7 +1,8 @@
 const Router = require('express').Router();
 
 const routes = [
-    'admin'
+    'admin',
+    'document'
 ]
 
 module.exports = {
