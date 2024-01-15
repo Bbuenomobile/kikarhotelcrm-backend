@@ -57,7 +57,8 @@ exports.uploadDocument = async (req, res, next) => {
         return res.status(200).json({
             status: true,
             message: `${documentTitle} Uploaded Successfully!`,
-            fileUrl: result.url
+            fileUrl: result.url,
+            document: saved
         })
     }).catch(err => {
         console.log(err);
@@ -108,5 +109,16 @@ exports.getAllDocuments = async (req, res, next) => {
         status: true,
         total: results.length,
         data: results
+    })
+}
+
+exports.getDocument = async (req, res, next) => {
+    let { docId } = req.query;
+
+    let data = await DocumentModel.findById(docId).exec();
+
+    return res.status(200).json({
+        status: true,
+        data: data
     })
 }
