@@ -43,7 +43,7 @@ async function uploadToCloudinary(locaFilePath) {
 exports.uploadDocument = async (req, res, next) => {
     const {documentTitle} = req.body;
     const documentFilePath = req.file.filename;
-
+    console.log(documentFilePath);
     var result = await uploadToCloudinary(documentFilePath);
     let today = new Date();
     let newDocument = new DocumentModel({
