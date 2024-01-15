@@ -16,6 +16,7 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 router.get("/getAllDocuments", DocumentController.getAllDocuments);
+router.get("/getDocument", DocumentController.getDocument);
 router.post("/uploadDocument" , upload.single('document'), DocumentController.uploadDocument);
 router.post("/deleteDocument", DocumentController.deleteDocument);
 
