@@ -73,7 +73,6 @@ exports.deleteDocument = async (req, res, next) => {
 
     cloudinary.uploader.destroy(publicId,  { invalidate: true, resource_type: "raw" }, (result) => {
         //console.log(result);
-        fs.unlinkSync('uploads/' + publicId);
     });
 
     await DocumentModel.findByIdAndDelete(documentId).then(deleted => {
